@@ -1,0 +1,86 @@
+body {
+    background-image: url(../../../assets/imagenes/Foto1.jpg);
+    overflow-x: hidden;
+  }
+  #ffoor {
+    position: relative;
+    left: 20%;
+    margin-top: -65px;
+  }
+  @media all and (max-width: 991px) {
+    #ffoor {
+      position: relative;
+      left: 0%;
+      width: 180%;
+    }
+  }
+  @media all and (max-width: 767px) {
+    #ffoor {
+      position: relative;
+      left: 0%;
+      width: 105%;
+    }
+  }
+  @media all and (max-width: 320px) {
+    #ffoor {
+      position: relative;
+      left: 0%;
+      width: 115%;
+    }
+  }
+  #inputfooor {
+    border-color: rgb(222, 222, 228);
+    width: 10rem;
+    background-color: rgba(39, 37, 37, 0.1);
+    border: solid 2px rgba(255, 255, 255, 0.5);
+    font-size: 20px;
+    color: #fff;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    text-align: right;
+    transition: all 250ms ease;
+  }
+  #ffoor input:focus {
+    outline: 0px;
+    background-color: rgb(226, 198, 198);
+    border: solid 2px rgb(226, 198, 198);
+    color: #000;
+  }
+  #fon {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+  }
+  #cabecera {
+    position: relative;
+    bottom: 40px;
+    left: 43%;
+    color: wheat;
+    font-family: "Helvetica Neue";
+  }
+  #fon img {
+    margin-top: -75px;
+    margin-bottom: 40px;
+    width: 28%;
+    height: 28%;
+    border-radius: 50%;
+    border: solid rgb(51, 48, 48) 5px;
+    position: relative;
+    bottom: 20px;
+    left: 34%;
+  }
+  @media all and (max-width: 990px) {
+    #cabecera {
+      position: relative;
+      bottom: 40px;
+      left: 40%;
+    }
+  }
+  @media all and (max-width: 450px) {
+    #cabecera {
+      position: relative;
+      bottom: 40px;
+      left: 36%;
+    }
+  }
+
+  

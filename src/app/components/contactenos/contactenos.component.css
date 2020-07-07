@@ -1,0 +1,44 @@
+.acepta {
+    position: relative;
+    font-family: "Helvetica Neue";
+  }
+  #degrade {
+    position: relative;
+    left: 65%;
+    text-decoration: none;
+    padding: 20px;
+    font-weight: 50;
+    font-size: 13pt;
+    color: rgba(48, 32, 19, 0.897);
+    background: linear-gradient(180deg, #eaf3e7 0%, #41fa03 100%);
+    transition: all 0.3s;
+    border-radius: 50px;
+    border: 0.5px;
+    cursor: pointer;
+  }
+  #degrade:hover {
+    opacity: 0.8;
+  }
+
+  .contact {
+    background-color: rgba(255, 255, 255, 0.637);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    border-radius: 5px;
+  }
+  .contact span {
+    font-size: 20pt;
+  }
+  #titulo {
+    font-family: "Courier New";
+    font-size: 24pt;
+  }
+  #back{
+    background-color: rgb(230, 227, 227);
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    border-top-right-radius: 50px;
+    border-top-left-radius: 50px;
+  }

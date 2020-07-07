@@ -1,0 +1,53 @@
+.sticky-top-2{
+    position: -webkit-sticky;
+    position: sticky;
+    top: 31px;
+    z-index: 10;
+}
+@media all and (max-width: 991px) {
+    .sticky-top-2{
+        position: static;
+    }
+}
+.container{
+    background-color: rgba(0, 0, 0, 0);
+}
+.carousel img{
+    height: 270px;
+}
+.nav a:hover {
+    cursor: pointer;
+    background: rgba(19, 18, 18, 0.3);
+}
+#noticia{
+    padding-left: 20%;
+    padding-right: 20%;
+}
+.content{
+    background-color: rgba(221, 216, 216, 0.637);
+}
+#notii{
+    box-shadow: 2px 2px 25px rgb(102, 98, 98);
+}
+.nav{
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+#idusuario2{
+    cursor: unset;
+}
+.nav{
+    background-image: url(../../../assets/imagenes/PapelTapizFinal5.gif);
+    background-size: cover;
+}
+.carousel-inner p{
+    background-color: rgba(19, 20, 20, 0.349);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+#not{
+    background-color: rgba(55, 76, 145, 0.918);
+
+}

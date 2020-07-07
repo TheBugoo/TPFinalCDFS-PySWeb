@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+</head>
+<body>
+    <div class="container">
+        <br>
+        <br>    
+        <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+              <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="../../../assets/imagenes/SlideLocal3.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Locales en altura</h5>
+                  <p>Paunero Nº al 1900, Martínez, 66 m² totales 0 Baños
+                    Local A metros de alvear6 Mts de frente. 48 mts de local + 18 mts de entrepisosin expensasmartillero Responsable: Pablo Hyland C. S. I: 4799.</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="../../../assets/imagenes/SlideLocal2.gif" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Local centro</h5>
+                  <p>Santa Fe al 1400 Entre Piran y Saenz Valiente, 115 m² totales 115 m² cubiertos 2 Baños
+                    Excelente local con 4 vidrieras, cortinas metalicas electricas, oficina. pa: 70m2, balcones al salon, kitchenette y 2 baños hombre/mujer.</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="../../../assets/imagenes/SlideLocal1.webp" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Local en Barrio</h5>
+                  <p>Rawson 2027, Martínez, San Isidro, 305 m² totales 305 m² cubiertos 3 Baños
+                    Único local Gastronómico a la venta ubicado en el Centro Comercial de Martínez,Frente a la Estación de Tren, a metros de calle Alvear.</p>
+                </div>
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+          <br>
+        <nav class="nav sticky-top-2 navbar-expand-lg bg-info " style="color: white;">
+            
+            <div >
+              <div class="nav" id="navbar2">
+                <a class="nav-item nav-link active " (click)="escogerNoticias()"><strong>NOTICIAS</strong><span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link active" (click)="escogerNovedades()"><strong>NOSOTROS</strong></a>
+                <a class="nav-item nav-link active" (click)="escogerComentarios()"><strong>COMENTARIOS</strong></a>
+              </div>
+            </div>
+        </nav>
+        <br>
+
+        <div class="content col-md-12">
+            <div class="row">
+              <div *ngIf="bandera==true" id="noticia" class="col-md-12 text-center pt-4">
+                  <div align="left">
+                    <p>
+                      <a class="btn btn-primary" data-toggle="collapse" *ngIf="loginService.userLoggedIn && (loginService.userLogged.perfil=='Administrador' || loginService.userLogged.perfil=='Administrativo')" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        Agregar Noticia
+                      </a>
+                      <button class="btn btn-primary ml-3" type="button" data-toggle="collapse" *ngIf="loginService.userLoggedIn && loginService.userLogged.perfil=='Administrador'" data-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2">
+                        Validar Noticias
+                      </button>
+                    </p> 
+                    <div class="collapse" id="collapseExample2">
+                      <div class="card card-body">
+                        <div class="text-center">
+                          <input
+                            name="idusuario2"
+                            id="idusuario2"
+                            class="btn btn-light col-sm-12 col-md-12"
+                            #idusuario
+                            readonly="readonly" 
+                            [(ngModel)]="noticia.titulo"
+                            align="center" 
+                          />
+                          <input
+                              type="checkbox"
+                              class="custom-control-input"
+                              id="idVigente"
+                              [(ngModel)]="noticia.vigente"
+                              name="idVigente"
+                            />
+                          <label class="custom-control-label" for="idVigente"
+                            >Vigente</label
+                          >
+                          <div align="center">
+                            <button
+                              class="btn btn-warning m-5"
+                              (click)="actualizarNoticia()"
+                            >
+                              Modificar
+                            </button>
+                            <button
+                              class="btn btn-warning m-5"
+                              (click)="cleanNoticia()"
+                            >
+                              Limpiar
+                            </button>
+                          </div>
+                        </div>
+                        <table
+                        class="table table-responsive-xl"
+                      >
+                        <thead>
+                          <tr>
+                            <th
+                              scope="col"
+                              class="bg-warning"
+                              colspan="5"
+                              style="text-align: center;"
+                            >
+                              Cual desea validar 
+                            </th>
+                          </tr>
+                          <tr>
+                            <th scope="col">
+                              #
+                            </th>
+                            <th scope="col">
+                              titulo
+                            </th>
+                            <th scope="col">
+                              Noticia Vigente
+                            </th>
+                            <th scope="col">
+                              Editar
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let noticia of noticias">
+                            <th scope="row">-</th>
+                            <td>{{ noticia.titulo | titlecase }}</td>
+                            <td>
+                              <i *ngIf="noticia.vigente == true; else elseTemplate"
+                                >Esta Vigente</i
+                              >
+                              <ng-template #elseTemplate><i>No esta Vigente</i> </ng-template>
+                            </td>
+                            <td align="center">
+                              <button
+                                class="btn btn-warning ml-2 mr-2"
+                                (click)="seleccionarNoticia(noticia)"
+                              >
+                                Seleccionar
+                              </button>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      </div>
+                    </div>
+                    <div class="collapse" id="collapseExample">
+                      <div class="card card-body col-md-12">
+                        <form
+                          class="p-3"
+                          id="punto2fondo"
+                          (ngSubmit)="limpiarFormulario(formregistro)"
+                          #formregistro="ngForm"
+                        >
+                          <div><h4 align="center">Informacion de noticias</h4></div>
+                          <div class="form-group">
+                            <label for="idusuario">Titulo:</label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="idtitulo"
+                              [(ngModel)]="noticia.titulo"
+                              maxlength="55"
+                              required="required"
+                              name="idtitulo"
+                              aria-describedby="emailHelp"
+                              required="required"
+                            />
+                            <small id="emailHelp" class="form-text text-muted"
+                              >Haga una promesa audaz y corta.</small
+                            >
+                          </div>
+                          <div class="form-group">
+                            <label for="idnombreOrg">Usuario:</label>
+                            <ouput
+                              name="idusuario"
+                              id="idusuario"
+                              class="btn btn-light col-sm-12 col-md-12"
+                              *ngIf="loginService.userLoggedIn && loginService.userLogged.perfil=='Administrador'"
+                              #idusuario
+                              required
+                              align="center" 
+                            >
+                            Administrador
+                            </ouput>
+                            <ouput
+                              name="idusuario"
+                              id="idusuario"
+                              class="btn btn-light col-sm-12 col-md-12"
+                              *ngIf="loginService.userLoggedIn && loginService.userLogged.perfil=='Administrativo'"
+                              #idusuario
+                              required
+                              align="center" 
+                            >
+                            Administrativo
+                            </ouput>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-md-7" for="idnombreOrg">Descripcion:</label><i class="col-md-5">({{ valor }} Caracteres Restantes)</i>
+                            <textarea
+                              class="form-control"
+                              [maxlength]="tamMaxText"
+                              rows="5"
+                              [(ngModel)]="noticia.descripcion"
+                              [(ngModel)]="mensaje"
+                              required="required"
+                              (ngModelChange)="cambiarTamTexto()"
+                              name="txtTexto"
+                          > 
+                           </textarea> 
+                          </div>
+                          <div class="col-md-12 col-12 ml-2">
+                            <div class="row justify-content-center">
+                              <button
+                                type="button"
+                                class="btn btn-primary ml-3 mr-3"
+                                [disabled]="!formregistro.form.valid"
+                                (click)="agregarNoticia()"
+                                (click)="postFb()"
+
+                              >
+                                Agregar Noticia
+                              </button>
+                              <button
+                                class="btn btn-primary"
+                                [disabled]="!formregistro.form.valid"
+                                (click)="cleanNoticia()"
+                              >
+                                Limpiar
+                              </button>
+                              <button
+                                class="btn btn-primary ml-3 mr-3"
+                                [disabled]="!formregistro.form.valid"
+                                (click)="actualizarNoticia()"
+                              >
+                                Modificar
+                              </button>
+                            </div>
+                          </div>
+                        </form>
+                        <div class="table-responsive col-md-12" id="fondotable">
+                          <table
+                            class="table table-striped"
+                            [mfData]="noticias"
+                            #mf="mfDataTable"
+                            [mfRowsOnPage]="2"
+                          >
+                            <thead>
+                              <tr>
+                                <th
+                                  scope="col"
+                                  class="bg-warning"
+                                  colspan="5"
+                                  style="text-align: center;"
+                                >
+                                  Noticias Cargadas
+                                </th>
+                              </tr>
+                              <tr>
+                                <th scope="col">
+                                  <mfDefaultSorter by="numbrt">#</mfDefaultSorter>
+                                </th>
+                                <th scope="col">
+                                  <mfDefaultSorter by="titulo">titulo</mfDefaultSorter>
+                                </th>
+                                <th scope="col">
+                                  <mfDefaultSorter by="udustio"
+                                    >Usuario</mfDefaultSorter
+                                  >
+                                </th>
+                                <th scope="col">
+                                  <mfDefaultSorter by="vigente">Noticia Vigente</mfDefaultSorter>
+                                </th>
+                                <th scope="col">
+                                  <mfDefaultSorter by="edit">Editar</mfDefaultSorter>
+                                </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr *ngFor="let noti of mf.data">
+                                <th scope="row">-</th>
+                                <td>{{ noti.titulo | titlecase }}</td>
+                                <td>{{ noti.usuario.usuario }}</td>
+                                <td>
+                                  <i *ngIf="noti.vigente == true; else elseTemplate"
+                                    >Esta Vigente</i
+                                  >
+                                  <ng-template #elseTemplate><i>No esta Vigente</i> </ng-template>
+                                </td>
+                                <td align="center">
+                                  <button
+                                    class="btn btn-warning ml-2 mt-2 mr-2"
+                                    (click)="borrarNoticia(noti)"
+                                  >
+                                    BORRAR
+                                  </button>
+                                  <button
+                                    class="btn btn-warning ml-2 mt-2 mr-2"
+                                    id="selec"
+                                    (click)="seleccionarNoticia(noti)"
+                                  >
+                                    SELECT
+                                  </button>
+                                </td>
+                              </tr>
+                            </tbody>
+                            <tfoot>
+                              <tr>
+                                <td colspan="5">
+                                  <mfBootstrapPaginator
+                                    [rowsOnPageSet]="[3, 6, 8]"
+                                  ></mfBootstrapPaginator>
+                                </td>
+                              </tr>
+                            </tfoot>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                    <hr>
+                  </div>
+                  <div id="printJS-form">
+                    <div class="card col-md-12 m-3 p-4 border-primary" id="notii" *ngFor="let noticia of noticiaVig">
+                      <div class="row">
+                        <h5 class="col-md-8">{{ noticia.titulo }}</h5><i class="col-md-4">{{ noticia.fecha | date: "longDate" }}</i>
+                      </div>
+                      <hr>
+                      <P align="right">publicado por <strong> {{ noticia.usuario.usuario }} </strong></P>
+                      <p>{{ noticia.descripcion }}</p>
+                      
+                    </div>
+                  </div>
+                  <br>
+              </div>
+              <div *ngIf="bandera2==true" id="noticia" class="col-md-12">
+                <br>
+                <hr>
+                  <div class="card text-white text-center p-3" id="not">
+                    <h3>SOBRE NOSOTROS</h3>
+                    <blockquote class="blockquote mb-0">
+                      <p>Por una de estas puertas, hace más de 200 años -en 1762-, se entró por primera vez a esta antigua casona ubicada al 1066 de la vieja calle Defensa. Desde entonces sus muros serían testigos de gran parte de nuestra historia.
+                        El 23 de noviembre de 1774, nace allí Bugon Franchis. Su carácter impetuoso y vehemente lo llevó a capitanear las fuerzas juveniles por la lucha de la defensa durante las invasiones Inglesas, volviéndose uno de los principales responsables del éxito obtenido sobre las fuerzas invasoras.   
+                        Bajo estos mismos techos, Bugon Franchis y su amigo y vecino, Tosk Sama Beruti, decidieron entregar cintas a los patriotas reunidos en la Plaza Mayor (hoy, Plaza de Mayo), creando así nuestra escarapela.
+                        Pasaron los años y la vieja casona CDFS Frenchs Propiedades, es una inmobiliaria comercial ubicada en el centro geográfico de la Ciudad de Buenos Aires que ofrece: Inmuebles Industriales - Alquiler y Venta de Locales, Galpones y Edificios Industriales ubicados principalmente en la Zona Centro y Sur de la Capital Federal. Inmuebles Comerciales: Comercialización de Locales, venta de terrenos y alquileres de oficinas. Inmuebles Residenciales: Alquiler y venta de departamentos en la Ciudad de Buenos Aires. Servicio de Tasaciones judiciales y privadas con el aval de martilleros especializados.                      <footer class="blockquote-footer text-white">
+                        <small>
+                          Written By <cite title="Source Title">CDFS Franchise </cite>
+                        </small>
+                      </footer>
+                    </blockquote>
+                  </div>
+                  <br>
+                  <br>  
+              </div>
+              <div *ngIf="bandera3==true" id="noticia" class="col-md-12">
+                  <br>
+                  <hr> 
+                  <h4 align="center">Comentarios</h4>
+                  <br>
+                  <div class="col-md-10" *ngIf="loginService.userLoggedIn && (loginService.userLogged.perfil=='Inquilino' || loginService.userLogged.perfil=='Administrativo' || loginService.userLogged.perfil=='Administrador')">
+                    <form 
+                        class="p-3"
+                        (ngSubmit)="limpiarFormulario(formcoment)"
+                        #formcoment="ngForm">
+                        <div class="form-group">
+                          <label class="col-md-7">Comentario a escribir:</label>
+                          <textarea
+                            class="form-control"
+                            rows="5"
+                            minlength="10"
+                            maxlength="70"
+                            [(ngModel)]="comentario.texto"
+                            required="required"
+                            name="txtTexto"
+                        > 
+                         </textarea> 
+                        </div>
+                        <div>
+                          <button
+                            class="btn btn-primary ml-3 mr-3"
+                            [disabled]="!formcoment.form.valid"
+                            (click)="agregarComentarios()"
+                          >
+                            Agregar Comentario
+                          </button>
+                        </div>
+                    </form>
+                  </div>
+                  <div class="row">
+                    <div class="card col-md-10 mb-2" style="background-color: rgb(219, 223, 226);"  *ngFor="let coment of comentarios">
+                      <div class="row">
+                        <h5 class="col-md-8 mt-3">Comentario - Propietarios</h5><i class="col-md-4 mt-3">{{ coment.fecha | date: "longDate" }}</i>
+                      </div>
+                      <hr>
+                      <p>{{ coment.texto }}</p>
+                      <P align="right">by<strong> Anonymus </strong></P>
+                      <button
+                        *ngIf="loginService.userLoggedIn && (loginService.userLogged.perfil=='Administrativo' || loginService.userLogged.perfil=='Administrador')"
+                          class="btn btn-primary mb-3 ml-5 mr-5"
+                          (click)="borrarComentario(coment)"
+                        >
+                          Borrar Comentario
+                      </button>
+                    </div>
+                  </div>
+                  <br>
+              </div>
+            </div>
+        </div>
+        <br><br>
+    </div>
+    <br><br>
+    <div class="col-md-12 fixed-bottom" id="impresion" align="right" *ngIf="(loginService.userLoggedIn && loginService.userLogged.perfil=='Administrador') && (bandera2==false && bandera3==false)">
+      <button class="btn btn-primary ml-2 mr-2 mb-3" (click)="printJS()">
+        Imprimir
+      </button>
+      <button class="btn btn-primary ml-2 mr-2 mb-3" (click)="generarPDF()">
+        Imprimir en PDF 
+      </button>
+    </div>
+</body>
+</html>

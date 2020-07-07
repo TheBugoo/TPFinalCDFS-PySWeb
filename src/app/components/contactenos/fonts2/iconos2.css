@@ -1,0 +1,252 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('icomoon.eot?hysgp9');
+  src:  url('icomoon.eot?hysgp9#iefix') format('embedded-opentype'),
+    url('icomoon.ttf?hysgp9') format('truetype'),
+    url('icomoon.woff?hysgp9') format('woff'),
+    url('icomoon.svg?hysgp9#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-home:before {
+  content: "\e900";
+}
+.icon-pencil:before {
+  content: "\e905";
+}
+.icon-pencil2:before {
+  content: "\e906";
+}
+.icon-quill:before {
+  content: "\e907";
+}
+.icon-image:before {
+  content: "\e90d";
+}
+.icon-images:before {
+  content: "\e90e";
+}
+.icon-camera:before {
+  content: "\e90f";
+}
+.icon-headphones:before {
+  content: "\e910";
+}
+.icon-music:before {
+  content: "\e911";
+}
+.icon-profile:before {
+  content: "\e923";
+}
+.icon-paste:before {
+  content: "\e92d";
+}
+.icon-folder:before {
+  content: "\e92f";
+}
+.icon-folder-open:before {
+  content: "\e930";
+}
+.icon-phone:before {
+  content: "\e942";
+}
+.icon-calendar:before {
+  content: "\e953";
+}
+.icon-display:before {
+  content: "\e956";
+}
+.icon-laptop:before {
+  content: "\e957";
+}
+.icon-floppy-disk:before {
+  content: "\e962";
+}
+.icon-user:before {
+  content: "\e971";
+}
+.icon-users:before {
+  content: "\e972";
+}
+.icon-user-plus:before {
+  content: "\e973";
+}
+.icon-user-minus:before {
+  content: "\e974";
+}
+.icon-user-check:before {
+  content: "\e975";
+}
+.icon-user-tie:before {
+  content: "\e976";
+}
+.icon-key:before {
+  content: "\e98d";
+}
+.icon-key2:before {
+  content: "\e98e";
+}
+.icon-switch:before {
+  content: "\e9b6";
+}
+.icon-list-numbered:before {
+  content: "\e9b9";
+}
+.icon-sphere:before {
+  content: "\e9c9";
+}
+.icon-earth:before {
+  content: "\e9ca";
+}
+.icon-star-full:before {
+  content: "\e9d9";
+}
+.icon-heart:before {
+  content: "\e9da";
+}
+.icon-heart-broken:before {
+  content: "\e9db";
+}
+.icon-man:before {
+  content: "\e9dc";
+}
+.icon-woman:before {
+  content: "\e9dd";
+}
+.icon-man-woman:before {
+  content: "\e9de";
+}
+.icon-happy:before {
+  content: "\e9df";
+}
+.icon-happy2:before {
+  content: "\e9e0";
+}
+.icon-smile2:before {
+  content: "\e9e2";
+}
+.icon-wink:before {
+  content: "\e9e7";
+}
+.icon-point-up:before {
+  content: "\ea03";
+}
+.icon-point-right:before {
+  content: "\ea04";
+}
+.icon-point-down:before {
+  content: "\ea05";
+}
+.icon-point-left:before {
+  content: "\ea06";
+}
+.icon-plus:before {
+  content: "\ea0a";
+}
+.icon-minus:before {
+  content: "\ea0b";
+}
+.icon-info:before {
+  content: "\ea0c";
+}
+.icon-cancel-circle:before {
+  content: "\ea0d";
+}
+.icon-blocked:before {
+  content: "\ea0e";
+}
+.icon-cross:before {
+  content: "\ea0f";
+}
+.icon-checkmark:before {
+  content: "\ea10";
+}
+.icon-checkmark2:before {
+  content: "\ea11";
+}
+.icon-enter:before {
+  content: "\ea13";
+}
+.icon-exit:before {
+  content: "\ea14";
+}
+.icon-mail:before {
+  content: "\ea83";
+  font-size: 33.5px;
+  position: relative;
+  top: 6px;
+}
+.icon-mail2:before {
+  content: "\ea84";
+}
+.icon-mail3:before {
+  content: "\ea85";
+}
+.icon-mail4:before {
+  content: "\ea86";
+}
+.icon-facebook:before {
+  content: "\ea90";
+  font-size: 33.5px;
+  position: relative;
+  top: 6px;
+}
+.icon-facebook2:before {
+  content: "\ea91";
+  font-size: 33.5px;
+  position: relative;
+  top: 6px;
+}
+.icon-instagram:before {
+  content: "\ea92";
+  font-size: 33.5px;
+  position: relative;
+  top: 6px;
+}
+.icon-whatsapp:before {
+  content: "\ea93";
+  font-size: 33.5px;
+}
+.icon-spotify:before {
+  content: "\ea94";
+}
+.icon-twitter:before {
+  content: "\ea96";
+  font-size: 33.5px;
+  position: relative;
+  top: 6px;
+}
+.icon-steam:before {
+  content: "\eaac";
+  font-size: 33.5px;
+  position: relative;
+  top: 6px;
+}
+.icon-steam2:before {
+  content: "\eaad";
+}
+.icon-appleinc:before {
+  content: "\eabe";
+}
+.icon-chrome:before {
+  content: "\ead9";
+}
+.icon-safari:before {
+  content: "\eadd";
+}

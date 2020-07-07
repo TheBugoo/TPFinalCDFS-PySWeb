@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propietario</title>
+</head>
+<body class="pt-5">
+    <div class="container pt-5">
+      <div class="card a1">
+        <h2 class="a2">Propietarios</h2>
+    
+        <form #formPasaje="ngForm" (ngSubmit)="onSubmit(formPasaje)">
+          <div class="formgroup row col-md-12">
+            <div style="width: 30%;">
+              <label style="padding-left: 40%;">Dni Propietario:</label>
+            </div>
+            <input style="width: 50%;" type="number" class="form-control" name="txtDni" #txtDni="ngModel"
+              [(ngModel)]="propietario.dni" required minlength="8" (keypress)="numberOnly($event)" />
+    
+            <div *ngIf="txtDni.invalid && (txtDni.dirty || txtDni.touched)" class="alertalert-danger">
+    
+              <div *ngIf="txtDni.errors.required" style=" margin-left: 70px;">
+                Dni es requerido.
+              </div>
+    
+              <div *ngIf="txtDni.errors.minlength" style=" margin-left: 70px;">
+                el Dni debe tener al menos 8 caracteres.
+              </div>
+            </div>
+          </div>
+          <div class="formgroup row col-md-12" style="margin-top: 5px;">
+            <div style="width: 30%;">
+              <label style="padding-left: 40%;"> Apellido :</label>
+            </div>
+            <input style="width: 50%;" type="text" class="form-control" name="apellido" #prec="ngModel"
+              [(ngModel)]="propietario.apellido" required />
+            <div *ngIf="prec.invalid && (prec.dirty || prec.touched)" class="alertalert-danger">
+    
+              <div *ngIf="prec.errors.required" style=" margin-left: 70px;">
+                Apellido es requerido.
+              </div>
+    
+            </div>
+          </div>
+          <div class="formgroup row col-md-12" style="margin-top: 5px;">
+            <div style="width: 30%;">
+              <label style="padding-left: 40%;"> Nombres :</label>
+            </div>
+            <input style="width: 50%;" type="text" class="form-control" name="nombre" #prec="ngModel"
+              [(ngModel)]="propietario.nombres" required />
+            <div *ngIf="prec.invalid && (prec.dirty || prec.touched)" class="alertalert-danger">
+    
+              <div *ngIf="prec.errors.required" style=" margin-left: 70px;">
+                Nombres es requerido.
+              </div>
+    
+            </div>
+          </div>
+          <div class="formgroup row col-md-12" style="margin-top: 5px;">
+            <div style="width: 30%;">
+              <label style="padding-left: 40%;"> email :</label>
+            </div>
+            <input style="width: 50%;" type="text" class="form-control" name="email" #prec="ngModel"
+              [(ngModel)]="propietario.email" required />
+            <div *ngIf="prec.invalid && (prec.dirty || prec.touched)" class="alertalert-danger">
+    
+              <div *ngIf="prec.errors.required" style=" margin-left: 70px;">
+                Email es requerido.
+              </div>
+    
+            </div>
+          </div>
+          <div class="formgroup row col-md-12" style="margin-top: 5px;">
+            <div style="width: 30%;">
+              <label style="padding-left: 40%;">Telefono :</label>
+            </div>
+            <input style="width: 50%;" type="number" class="form-control" name="telefono" #txtDni="ngModel"
+              [(ngModel)]="propietario.telefono" required minlength="8" (keypress)="numberOnly($event)" />
+    
+            <div *ngIf="txtDni.invalid && (txtDni.dirty || txtDni.touched)" class="alertalert-danger">
+    
+              <div *ngIf="txtDni.errors.required" style=" margin-left: 70px;">
+                Telefono es requerido.
+              </div>
+    
+              <div *ngIf="txtDni.errors.minlength" style=" margin-left: 70px;">
+                el telefono debe tener al menos 8 caracteres.
+              </div>
+            </div>
+          </div>
+    
+          <div class="row col-sm-12" style="padding-left: 150px;margin-top: 5px;">
+            <button type="submit" class="b2" style="margin-bottom: 10px; width: 30%;" (click)="enviarPropietario()"
+              [disabled]="formPasaje.invalid ">
+              Registrar
+            </button>
+            <button type="submit" class="b2" style="margin-bottom: 10px; width: 30%;" (click)="modificarPropietario()">
+              Modificar
+            </button>
+            <input style="margin-bottom: 10px; width: 30%;" type="reset" class="b2" value="Limpiar" />
+    
+          </div>
+        </form>
+    
+        <br>
+        </div>
+        <br />
+      <div id="printJS-form">
+        <table style="
+        background-color: white;
+        color: black;
+        border-color: rgb(11, 37, 0);
+      " class="table table-striped col-sm-12" [mfData]="propietarios" #mf="mfDataTable" [mfRowsOnPage]="5">
+      <thead>
+        <tr>
+          <th style="width: 8%;">
+            <mfDefaultSorter> Dni </mfDefaultSorter>
+          </th>
+          <th style="width: 15%;">
+            Apellido
+          </th>
+          <th style="width: 20%;">
+            Nombres
+          </th>
+          <th style="width: 15%;">
+            email
+          </th>
+          <th style="width: 20%;">
+            Telefono
+          </th>
+          <th style="width: 30%; padding-left: 70px;">
+            Acciones
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of propietarios">
+          <td>{{ item.dni }}</td>
+          <td>{{ item.apellido }}</td>
+          <td>{{ item.nombres }}</td>
+          <td>{{ item.email }}</td>
+          <td>{{ item.telefono }}</td>
+          <td>
+            <button class="b2" style="width: 50%;" (click)="elegirPropietario(item)">
+              Seleccion
+            </button>
+            <button class="b2" style="width: 50%;" (click)="borrarPropietario(item)">
+              Borrar
+            </button>
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td>
+            <mfBootstrapPaginator></mfBootstrapPaginator>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+      </div>
+    </div>
+    <div class="col-md-12 fixed-bottom" id="impresion" align="right" *ngIf="loginService.userLoggedIn && loginService.userLogged.perfil=='Administrador'">
+      <button class="btn btn-primary ml-2 mr-2 mb-3" (click)="printJS()">
+        Imprimir
+      </button>
+      <button class="btn btn-primary ml-2 mr-2 mb-3" (click)="generarPDF()">
+        Imprimir en PDF 
+      </button>
+    </div>
+    <br>
+    <br>
+    <br>
+    <link rel="stylesheet" href="https://unpkg.com/ngx-bootstrap/datepicker/bs-datepicker.css" />
+</body>
+</html>

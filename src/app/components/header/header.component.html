@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Navbar</title>
+  </head>
+  <body>
+    <div class="hola">
+      <hr id="hr1" />
+      <nav
+        class="navbar navbar-expand-lg navbar-light"
+        id="navbarr"
+      >
+        <a  *ngIf="!loginService.userLoggedIn"  class="navbar-brand-2" style="color: black;" [routerLink]="['login']" id="login" >LOG IN</a>
+        <a  *ngIf="loginService.userLoggedIn"  class="navbar-brand-2" style="color: black;" [routerLink]="['home']" id="logout"(click)="logout()">LOG OUT</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+          style="position: relative; top: 8px;"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" id="a1" [routerLink]="['home']"
+                >INICIO <span class="sr-only">(current)</span></a
+              >
+              <hr id="hr2" />
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                id="a1"
+                *ngIf="loginService.userLoggedIn && loginService.userLogged.perfil=='Inquilino'"
+                data-toggle="dropdown"
+                aria-expanded="false"
+                aria-haspopup="true"
+                role="button"
+                [routerLink]="['gallery']"
+                >PROPIETARIO</a
+              >
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Novedades</a>
+              </div>
+              <hr id="hr2" />
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                id="a1"
+                data-toggle="dropdown"
+                aria-expanded="false"
+                aria-haspopup="true"
+                *ngIf="loginService.userLoggedIn && loginService.userLogged.perfil=='Administrativo'"
+                role="button"
+                [routerLink]="['gallery']"
+                >ADMINISTRATIVO</a
+              >
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" [routerLink]="['novedades']">Novedades-Estados</a>
+                <a class="dropdown-item" [routerLink]="['locales']">Gestión de Locales</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" [routerLink]="['propietario']">Gestión de Propietario</a>
+                <a class="dropdown-item" [routerLink]="['contrato']">Gestión de Contratos</a>
+              </div>
+              <hr id="hr2" />
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                id="a1"
+                data-toggle="dropdown"
+                aria-expanded="false"
+                *ngIf="loginService.userLoggedIn && loginService.userLogged.perfil=='Administrador'"
+                aria-haspopup="true"
+                role="button"
+                [routerLink]="['gallery']"
+                >ADMINISTRADOR</a
+              >
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" [routerLink]="['novedades']">Novedades-Estados</a>
+                <a class="dropdown-item" [routerLink]="['usuarios']">Gestión de Usuarios</a>
+                <a class="dropdown-item" [routerLink]="['locales']">Gestión de Locales</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" [routerLink]="['propietario']">Gestión de Propietario</a>
+                <a class="dropdown-item" [routerLink]="['contrato']">Gestión de Contratos</a>
+              </div>
+              <hr id="hr2" />
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="a1" [routerLink]="['contact']">CONTACTENOS</a>
+              <hr id="hr2" />
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </body>
+</html>

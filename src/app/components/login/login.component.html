@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body class="pt-5">
+    <div class="container">
+        <div class="row" style="justify-content: center;"> 
+            <content class="col-md-9">
+                <div class="registry col-md-12" style="justify-content: center;">
+                  <article class="fondo">
+                    <br />
+                    <br /><br /><br /><br /><br />
+                    <form #formLogin="ngForm">
+                        <div class="form-group" id="fon">
+                          <div class="form row">
+                            <img src="../../../assets/imagenes/male.jpg" alt="user" />
+                          </div>
+                          <div class="form row">
+                            <h3 id="cabecera">Log In</h3>
+                          </div>
+                          <div class="form row" id="ffoor">
+                            <div
+                              class="input-group p-5 col-md-7"
+                              style="justify-content: center;"
+                            >
+                              <div class="input-group-prepend">
+                                <span class="input-group-text icon-user"></span>
+                              </div>
+                              <input
+                                id="inputfooor"
+                                type="email"
+                                name="usuario" 
+                                class="form-control rounded-right"
+                                [(ngModel)]="userform.usuario"
+                                placeholder="Ingrese su nombre de Usuario"
+                                #usuario="ngModel"
+                                required pattern= "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                              />
+                              <div *ngIf="usuario.invalid && (usuario.dirty || usuario.touched)"
+                                class="alert alert-danger col-12">
+                                <div *ngIf="usuario.errors.required">
+                                    Es necesario que ingese un nombre de usuario
+                                </div>
+                                <div *ngIf="usuario.errors.pattern">
+                                    Debe ingresar un formato valido de correo electronico
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form row" id="ffoor">
+                            <div
+                              class="input-group p-5 col-md-7"
+                              style="justify-content: center;"
+                            >
+                              <div class="input-group-prepend">
+                                <span class="input-group-text icon-key"></span>
+                              </div>
+                              <input
+                                id="inputfooor"
+                                type="password"
+                                name="password" 
+                                class="form-control rounded-right"
+                                [(ngModel)]="userform.password"
+                                placeholder="Ingrese su Contraseña"
+                                required
+                              />
+                            </div> 
+                          </div>
+                        <div class="form-group text-center pr-5">
+                            <button class="btn btn-primary" [disabled]="!formLogin.form.valid" (click)="login()">Ingresar</button>
+                        </div>
+                        <br>
+                        </div>
+                    </form>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                  </article>
+                </div>
+            </content>
+        </div>
+    </div>
+</body>
+</html>

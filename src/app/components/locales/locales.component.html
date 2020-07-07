@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Locales</title>
+</head>
+<body class="pt-5">
+    <br>
+    <div class="container card">
+        <div class="row  justify-content-center mt-3">
+            <h2 class="col-md-12" align="center">LOCALES</h2>
+            <form class="col-9 col-md-6 " #formregistro="ngForm">
+                <br>
+                    <div class="form-group row justify-content-center">
+                        <label class="col-12 col-md-3" for="sup">Superficie</label>
+                        <input type="number" class="form-control col-12 col-md-7" placeholder="superficie"
+                      id="superficie" name="superficie" required [(ngModel)]="locl.superficie" #superficie="ngModel"  >
+                    </div>
+                    <div *ngIf="superficie.invalid && (superficie.dirty || superficie.touched)"
+                        class="alert alert-danger col-12">
+                        <div *ngIf="superficie.errors.required">
+                            Es necesario que complete el campo
+                        </div>
+                    </div>
+                    <div class="form-group row justify-content-center">
+                        <label class="col-12 col-md-3" for="costoMes">Costo por Mes</label>
+                        <input type="number" class="form-control col-12 col-md-7" placeholder="mensualidad"
+                      id="costoMes" name="costoMes" required [(ngModel)]="locl.costoMes" #costoMes="ngModel"  >
+                    </div>
+                    <div *ngIf="costoMes.invalid && (costoMes.dirty || costoMes.touched)"
+                        class="alert alert-danger col-12">
+                        <div *ngIf="costoMes.errors.required">
+                            Es necesario que complete el campo
+                        </div>
+                    </div>
+                    <div class="form-group row justify-content-center">
+                        <label class="col-12 col-md-3" for="imagen">Imagen</label>
+                        <input class="form-control col-12 col-md-7" type="file" alife-file-to-base64
+                    (onFileChanged)="convertir($event)" name="imagen" [(ngModel)]="locl.imagen" />
+                    </div>
+                    <div class="form-group row justify-content-center">
+                        <label class="col-12 col-md-3" for="descripcion">Descripcion</label>
+                        <input type="text" class="form-control col-12 col-md-7" placeholder="descripcion"
+                      id="descripcion" name="descripcion" required [(ngModel)]="locl.descripcion" #descripcion="ngModel"  >
+                    </div>
+                    <div *ngIf="descripcion.invalid && (descripcion.dirty || descripcion.touched)"
+                        class="alert alert-danger col-12">
+                        <div *ngIf="descripcion.errors.required">
+                            Es necesario que complete el campo
+                        </div>
+                    </div>
+                    <div class="form-group row  ml-5">
+                        <label  for="alquilado">Esta Alquilado?</label>
+                        <div class="col-12 col-md-3 mr-2">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="alquilado" required #alquilado="ngModel" id="alquilado" [(ngModel)]="locl.alquilado" value="true">
+                                <label class="form-check-label" for="exampleRadios1">
+                                  Si
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="alquilado" required #alquilado="ngModel" id="alquilado" [(ngModel)]="locl.alquilado" value="false">
+                                <label class="form-check-label" for="alquilado">
+                                  No
+                                </label>
+                            </div>
+                        </div>
+                        <div *ngIf="alquilado.invalid && (alquilado.dirty || alquilado.touched)"
+                                class="alert alert-danger col-12">
+                                <div *ngIf="alquilado.errors.required">
+                                    Es necesario que complete el campo
+                                </div>
+                            </div>
+                        
+                    </div>
+                    <div class="row justify-content-center mt-4">
+                        <div class="col-sm-10">
+                          <button  class="btn btn-outline-info" (click)="guardarLocal();onSubmit(formregistro)" [disabled]="!formregistro.form.valid" >Agregar</button>
+                          <button  class="btn btn-outline-info mx-3" (click)="modificarLocal();onSubmit(formregistro)">Modificar</button>
+                          <button  class="btn btn-outline-info" (click)="limpiar()">Limpiar</button>
+                        </div>
+                    </div>
+            </form>
+        </div>
+        
+        <div id="printJS-form" class="row">
+        <div class="table-responsive col-md-11 ml-5 justify-content-center">
+            <table class="table table-striped table-bordered col-12 mt-5 " [mfData]="locales" #mf="mfDataTable" [mfRowsOnPage]="5">
+                <thead class="bg-primary">
+                    <tr>
+                        <th scope="col">
+                            <mfDefaultSorter by="usuario">Superficie</mfDefaultSorter>
+                        </th>
+                        <th scope="col">
+                            <mfDefaultSorter by="password">Costo por Mes</mfDefaultSorter>
+                        </th>
+                        <th scope="col">
+                            <mfDefaultSorter by="imagen">Imagen</mfDefaultSorter>
+                        </th>
+                        <th scope="col">
+                            <mfDefaultSorter by="perfil">Descripcion</mfDefaultSorter>
+                        </th>
+                        <th scope="col">
+                            <mfDefaultSorter by="costomes">Alquilado</mfDefaultSorter>
+                        </th>
+                        <th scope="col">
+                            <mfDefaultSorter by="acciones">Acciones</mfDefaultSorter>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of mf.data">
+                        <td>{{item.superficie}}</td>
+                        <td>{{item.costoMes | currency: 'USD'}}</td>
+                        <td>
+                            <img src={{item.imagen}} style="width: 4em;height: 3em;" alt="">
+                        </td>
+                        <td>{{item.descripcion}}</td>
+                        <td>{{item.alquilado}}</td>
+                        <!--<td>
+                            <i *ngIf="item.alquilado == true; else elseTemplate">Si</i>
+                            <ng-template #elseTemplate> <i>No</i> </ng-template>
+                        </td>-->
+                        
+                        <td class="text-center">
+                            <button class="btn btn-outline-info btn mx-1" (click)="elegirLocal(item)"><i class="far fa-hand-pointer"></i></button>
+                            <button class="btn btn-outline-info btn mx-1" (click)="borrarLocal(item._id)"><i class="far fa-trash-alt"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr class="text-dark">
+                        <td colspan="5">
+                            <mfBootstrapPaginator [rowsOnPageSet]="[5,10,20]"></mfBootstrapPaginator>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+            <br>
+        </div>
+        </div>
+        <br>
+    </div>
+    <div class="col-md-12 fixed-bottom" id="impresion" align="right" *ngIf="loginService.userLoggedIn && loginService.userLogged.perfil=='Administrador'">
+        <button class="btn btn-primary ml-2 mr-2 mb-3" (click)="printJS()">
+          Imprimir
+        </button>
+        <button class="btn btn-primary ml-2 mr-2 mb-3" (click)="generarPDF()">
+          Imprimir en PDF 
+        </button>
+    </div>
+    <br>
+    <br>
+</body>
+</html>

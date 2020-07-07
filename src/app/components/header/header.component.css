@@ -1,0 +1,177 @@
+#hr1 {
+  height: 1px;
+  border-color: rgb(0, 0, 0);
+  z-index: 100;
+  position: relative;
+  bottom: 16px;
+}
+#navbarr {
+  position: relative;
+  bottom: 50px;
+}
+.navbar{
+  background-image: url(../../../assets/imagenes/PapelTapizFinal5.gif);
+  background-size: cover;
+}
+.hola {
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+}
+.navbar {
+  min-height: 30px !important; /* aqui escoges el alto que necesites */
+}
+
+.navbar a:hover {
+  background: rgba(19, 18, 18, 0.3);
+}
+.navbar a {
+  background: rgba(255, 255, 255, 0.356);
+}
+.navbar-nav > li > a,
+.navbar-brand {
+  padding-top: 5px !important;
+  padding-bottom: 0 !important;
+  height: 30px; /* aqui escoges el alto que necesites */
+}
+.navbar-nav {
+  position: relative;
+  left: 43%;
+}
+#hr2 {
+  position: relative;
+  top: 5px;
+  height: 1px;
+  border-color: rgb(0, 0, 0);
+  z-index: 100;
+}
+#a1 {
+  font-family: "Times New Roman", Times, serif;
+  color: black;
+}
+
+@media (min-width: 992px) {
+  #navbarr {
+    position: relative;
+    bottom: 83px;
+  }
+  .navbar-nav {
+    position: relative;
+    left: 37%;
+  }
+  #a1 {
+    position: relative;
+    top: 43px;
+    color: rgb(253, 251, 251);
+    font-weight: bold;
+  }
+  #hr2 {
+    position: relative;
+    top: 26px;
+    height: 1px;
+    border-color: rgb(0, 0, 0);
+    z-index: 100;
+  }
+  .navbar a {
+    background:  rgba(100, 162, 224, 0.76);
+  }
+}
+
+@media (min-width: 1077px) {
+  .navbar-nav {
+    position: relative;
+    left: 39%;
+  }
+}
+@media (min-width: 1200px) {
+  .navbar-nav {
+    position: relative;
+    left: 37%;
+  }
+}
+@media (min-width: 1177px) {
+  .navbar-nav {
+    position: relative;
+    left: 40%;
+  }
+}
+@media (min-width: 1400px) {
+  .navbar-nav {
+    position: relative;
+    left: 41%;
+  }
+}
+@media (min-width: 1700px) {
+  .navbar-nav {
+    position: relative;
+    left: 41%;
+  }
+}
+@media (min-width: 1790px) {
+  .navbar-nav {
+    position: relative;
+    left: 42%;
+  }
+}
+@media (min-width: 1920px) {
+  .navbar-nav {
+    position: relative;
+    left: 42%;
+  }
+}
+@media (min-width: 2500px) {
+  .navbar-nav {
+    position: relative;
+    left: 44%;
+  }
+}
+@media (min-width: 100px) {
+  .navbar {
+    margin-bottom: -50px;
+  }
+}
+@media (min-width: 992px) {
+  .navbar {
+    margin-bottom: -83px;
+  }
+}
+@media (min-width: 992px) {
+    .navbar-brand-2{
+        position: relative;
+        top: 20px;
+        left: 93%;
+    }
+  }
+@media all and (max-width: 991px) {
+    .navbar-brand-2{
+        position: relative;
+        left: 5%;
+        top: 2px;
+    }
+}
+#login{
+    position: relative;
+    line-height: 25px;
+    height: 40px;
+    padding: 8px;
+    font-weight: bold;
+    font-style: italic;
+    border: rgb(51, 49, 49);
+    border-style: ridge;
+    background-color: rgb(100, 162, 224);
+}
+#logout{
+    position: relative;
+    line-height: 25px;
+    height: 40px;
+    padding: 8px;
+    font-weight: bold;
+    font-style: italic;
+    border: rgb(51, 49, 49);
+    border-style: ridge;
+    background-color: rgb(230, 94, 94);
+}
+.dropdown-menu{
+    background-color: rgb(100, 162, 224);
+    z-index: 10;    
+}
