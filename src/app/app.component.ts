@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'tpfinal-cdfs';
+  ngOnInit(): void {
+    sessionStorage.removeItem("token");
+  }
 }
