@@ -24,7 +24,7 @@
     "angular-9-datatable": "^0.1.1",
     "bootstrap": "^4.5.0",
     "jquery": "^3.4.1",
-    "jspdf": "^1.5.3",
+    "jspdf": "^2.3.1",
     "ngx-fb": "^1.0.1",
     "ngx-toastr": "^12.1.0",
     "popper.js": "^1.16.1",
